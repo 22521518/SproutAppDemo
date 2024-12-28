@@ -3,13 +3,9 @@ import React from 'react';
 import { UserType } from '@/constants/type.constant';
 import Avatar from '@/components/avatars/Avatar';
 
-const FriendListComp = ({
-  userList,
-  title,
-  className
-}: FriendListCompProps) => {
+const FriendListComp = ({ userList, title }: FriendListCompProps) => {
   return (
-    <View className={`${className}`}>
+    <>
       {title && (
         <View className="px-6 flex flex-row items-center justify-between relative">
           <Text className="text-lg font-bold ml-auto mr-auto text-accent-bg-light dark:text-accent-bg-dark">
@@ -24,7 +20,7 @@ const FriendListComp = ({
           </View>
         ))}
       </View>
-    </View>
+    </>
   );
 };
 
@@ -35,5 +31,4 @@ const styles = StyleSheet.create({});
 type FriendListCompProps = {
   userList: UserType[];
   title?: string;
-  className?: string;
 };

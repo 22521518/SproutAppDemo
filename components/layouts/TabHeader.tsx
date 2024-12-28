@@ -10,7 +10,7 @@ const TabHeader = ({ title }: TabHeaderProps) => {
   const colorScheme = useColorScheme();
   const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
   return (
-    <View className="height-[96px] py-4 w-full px-4 relative top-0 flex flex-row justify-between items-center">
+    <View className="height-[96px] py-4 w-full px-4 relative top-0 flex flex-row justify-between items-center pt-2">
       <View
         className={`h-16 bg-secondary-white rounded-full p-0.5 items-center flex flex-row gap-1 min-h-[10dvh] maxs-h-[10dvh] drop-shadow-xl ${
           title && 'w-[72%] pe-5 '

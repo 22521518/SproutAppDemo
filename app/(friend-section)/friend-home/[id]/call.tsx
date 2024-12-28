@@ -32,7 +32,7 @@ const FriendCall = () => {
   };
 
   return (
-    <SafeAreaView className="h-dvh flex flex-col relative justify-between">
+    <SafeAreaView className="h-full flex flex-col relative justify-between">
       <BackHeader
         handleGoBack={handleGoBack}
         disableBack

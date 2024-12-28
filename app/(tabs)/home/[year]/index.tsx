@@ -11,9 +11,9 @@ const Home = () => {
   const today = (year as string) ? (year as string) : new Date().getFullYear();
 
   return (
-    <SafeAreaView className="flex flex-col relative h-dvh">
+    <SafeAreaView className="flex flex-col relative h-full">
       <TabHeader title="Home" />
-      <View className="flex-1 bg-secondary-white max-h-[70%] min-h-[70%] px-1 items-center">
+      <View className="flex-1 bg-secondary-white max-h-[80%] min-h-[70%] px-1 items-center">
         <TreeListComp year={today} />
       </View>
     </SafeAreaView>

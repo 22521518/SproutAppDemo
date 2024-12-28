@@ -1,3 +1,4 @@
+import '@/global.css';
 import {
   ScrollView,
   StyleSheet,
@@ -57,7 +58,9 @@ const Friends = () => {
             <Icons.Search fill={theme.avatarBackground} />
           </TouchableOpacity>
         </View>
-        <FriendListComp userList={[...onlineFriends, ...offlineFriends]} />
+        <View>
+          <FriendListComp userList={[...onlineFriends, ...offlineFriends]} />
+        </View>
       </View>
     </SafeAreaView>
   );

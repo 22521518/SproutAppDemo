@@ -1,3 +1,4 @@
+import '@/global.css';
 import { SafeAreaView, useColorScheme, View } from 'react-native';
 import React from 'react';
 import { Tabs } from 'expo-router';

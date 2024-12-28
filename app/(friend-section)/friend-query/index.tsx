@@ -76,16 +76,15 @@ const FriendsQuery = () => {
         </TouchableOpacity>
       </View>
 
-      <FriendListComp
-        userList={[...onlineFriends, ...offlineFriends]}
-        title="friends"
-        className="px-4 pb-4 mt-1 flex flex-col"
-      />
-      <FriendListComp
-        userList={otherUsers}
-        title="others"
-        className="px-4 pb-4 mt-1 flex flex-col"
-      />
+      <View className="px-4 pb-4 mt-1 flex flex-col">
+        <FriendListComp
+          userList={[...onlineFriends, ...offlineFriends]}
+          title="friends"
+        />
+      </View>
+      <View className="px-4 pb-4 mt-1 flex flex-col">
+        <FriendListComp userList={otherUsers} title="others" />
+      </View>
     </View>
   );
 };

@@ -1,4 +1,10 @@
-import { StyleSheet, Text, useColorScheme, View } from 'react-native';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View
+} from 'react-native';
 import React from 'react';
 import { Stack } from 'expo-router/stack';
 import { Colors } from '@/constants/Colors';

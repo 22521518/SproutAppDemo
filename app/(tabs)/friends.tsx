@@ -11,11 +11,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import TabHeader from '@/components/layouts/TabHeader';
 import Avatar from '@/components/avatars/Avatar';
 import Icons from '@/components/icons/Icons';
-import { Link, router } from 'expo-router';
-import { offlineUser, user } from '@/constants/dummy-data.constant';
+import { router } from 'expo-router';
+import { user } from '@/constants/dummy-data.constant';
 import { Colors } from '@/constants/Colors';
 import { UserType } from '@/constants/type.constant';
 import FriendListComp from '@/components/common/lists/FriendListComp';
+import { verifyInstallation } from 'nativewind';
 
 const Friends = () => {
   const colorScheme = useColorScheme();
@@ -38,6 +39,8 @@ const Friends = () => {
   const handleSearchPress = () => {
     router.push('/friend-query');
   };
+
+  verifyInstallation();
 
   return (
     <SafeAreaView className="flex flex-col relative">

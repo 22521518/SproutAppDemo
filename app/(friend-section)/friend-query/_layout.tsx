@@ -5,7 +5,7 @@ import TabHeader from '@/components/layouts/TabHeader';
 
 const FriendQueryLayout = () => {
   return (
-    <SafeAreaView className="flex flex-col relative">
+    <SafeAreaView className="flex flex-col relative pt-10">
       <Slot />
     </SafeAreaView>
   );

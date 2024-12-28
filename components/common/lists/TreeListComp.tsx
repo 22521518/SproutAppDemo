@@ -43,7 +43,7 @@ const TreeListComp = ({ year }: TreeListCompProps) => {
             <View className="w-max grid grid-cols-3 gap-8 items-end relative">
               {springTree.map((tr, i) => (
                 <TreeButton
-                  key={tr.id}
+                  key={i}
                   tree={tr}
                   handPress={() => handleTreePress(tr.id)}
                 />
@@ -58,7 +58,7 @@ const TreeListComp = ({ year }: TreeListCompProps) => {
             <View className="w-max grid grid-cols-3 gap-8 items-end relative">
               {summerTree.map((tr, i) => (
                 <TreeButton
-                  key={tr.id}
+                  key={i}
                   tree={tr}
                   handPress={() => handleTreePress(tr.id)}
                 />
@@ -73,7 +73,7 @@ const TreeListComp = ({ year }: TreeListCompProps) => {
             <View className="w-max grid grid-cols-3 gap-8 items-end relative">
               {fallTree.map((tr, i) => (
                 <TreeButton
-                  key={tr.id}
+                  key={i}
                   tree={tr}
                   handPress={() => handleTreePress(tr.id)}
                 />
@@ -88,7 +88,7 @@ const TreeListComp = ({ year }: TreeListCompProps) => {
             <View className="w-max grid grid-cols-3 gap-8 items-end relative">
               {winterTree.map((tr, i) => (
                 <TreeButton
-                  key={tr.id}
+                  key={i}
                   tree={tr}
                   handPress={() => handleTreePress(tr.id)}
                 />

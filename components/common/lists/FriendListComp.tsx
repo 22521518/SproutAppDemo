@@ -19,10 +19,7 @@ const FriendListComp = ({
       )}
       <View className="px-10 pt-3 grid grid-cols-3 gap-6 ">
         {userList.map((u, index) => (
-          <View
-            className="flex flex-col items-center"
-            key={index + u.usernameId}
-          >
+          <View className="flex flex-col items-center" key={index}>
             <Avatar user={u} />
           </View>
         ))}

@@ -55,8 +55,8 @@ const TabLayout = () => {
             tabBarIcon: ({ color, focused }) => (
               <>
                 <Icons.FriendTab
-                  width={64}
-                  height={64}
+                  width={48}
+                  height={48}
                   fill={
                     focused
                       ? theme.accentActionButton
@@ -108,8 +108,8 @@ const TabLayout = () => {
               return (
                 <>
                   <Icons.HomeTab
-                    width={96}
-                    height={96}
+                    width={48}
+                    height={48}
                     fill={
                       active
                         ? theme.accentActionButton

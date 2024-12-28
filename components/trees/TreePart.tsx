@@ -70,19 +70,19 @@ const TreePartComponent = ({
           <View className="grid grid-cols-5 w-[50%] mx-auto">
             {fruitThirdRow.map((fruit, index) => {
               const IconFComp = FillFruitTypeMap[fruit.type];
-              return <IconFComp width={24} height={24} />;
+              return <IconFComp width={24} height={24} key={index} />;
             })}
           </View>
           <View className="grid grid-cols-6 w-[80%] mx-auto">
             {fruitSecondRow.map((fruit, index) => {
               const IconFComp = FillFruitTypeMap[fruit.type];
-              return <IconFComp width={24} height={24} />;
+              return <IconFComp width={24} height={24} key={index} />;
             })}
           </View>
           <View className="grid grid-cols-7 items-end">
             {fruitFirstRow.map((fruit, index) => {
               const IconFComp = FillFruitTypeMap[fruit.type];
-              return <IconFComp width={24} height={24} />;
+              return <IconFComp width={24} height={24} key={index} />;
             })}
           </View>
         </View>

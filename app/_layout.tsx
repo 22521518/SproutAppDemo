@@ -1,4 +1,4 @@
-import '../global.css';
+import '@/global.css';
 import { SplashScreen } from 'expo-router';
 import { Stack } from 'expo-router/stack';
 import { useFonts } from 'expo-font';

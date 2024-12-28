@@ -1,5 +1,5 @@
 import React from 'react';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 import IconButton from './IconButton';
 import { useColorScheme, StyleSheet } from 'react-native';
 import { Colors } from '@/constants/Colors';

@@ -1,30 +1,36 @@
-import { AvatarIconType, FruitType, TreeColorType } from './enum.constant';
+import {
+  AvatarIconTypeEnum,
+  FruitTypeEnum,
+  TreeColorTypeEnum,
+  TreeTypeEnum
+} from './enum.constant';
 
-export type User = {
+export type UserType = {
   username: string;
   usernameId: string;
-  avatar: AvatarIconType;
+  avatar: AvatarIconTypeEnum;
   isOnline: boolean;
 };
 
-export type Tree = {
+export type TreeType = {
   id: string;
-  color: TreeColorType;
-  parts: TreePart[];
+  type: TreeTypeEnum;
+  color: TreeColorTypeEnum;
+  parts: TreePartType[];
   month: number;
   year: number;
 };
 
-export type TreePart = {
+export type TreePartType = {
   id: string;
   level: number;
-  color: TreeColorType;
-  size: number;
-  fruit: Fruit[];
+  type: TreeTypeEnum;
+  color: TreeColorTypeEnum;
+  fruit: FruitType[];
 };
 
-export type Fruit = {
+export type FruitType = {
   id: string;
-  type: FruitType;
+  type: FruitTypeEnum;
   created_at: Date;
 };

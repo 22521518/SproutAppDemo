@@ -8,9 +8,9 @@ import {
 import React from 'react';
 import { offlineUser, user } from '@/constants/dummy-data.constant';
 import { Link, router, useLocalSearchParams } from 'expo-router';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 import { Colors } from '@/constants/Colors';
-import { User } from '@/constants/type.constant';
+import { UserType } from '@/constants/type.constant';
 import FormField from '@/components/common/forms/FormField';
 import FriendListComp from '@/components/common/lists/FriendListComp';
 

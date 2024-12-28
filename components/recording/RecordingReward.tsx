@@ -1,7 +1,7 @@
 import { StyleSheet, Text, useColorScheme, View } from 'react-native';
 import React from 'react';
 import IconButton from '../common/buttons/IconButton';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const RecordingReward = () => {

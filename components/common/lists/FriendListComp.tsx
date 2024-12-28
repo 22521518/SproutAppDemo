@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { User } from '@/constants/type.constant';
+import { UserType } from '@/constants/type.constant';
 import Avatar from '@/components/avatars/Avatar';
 
 const FriendListComp = ({
@@ -36,7 +36,7 @@ export default FriendListComp;
 const styles = StyleSheet.create({});
 
 type FriendListCompProps = {
-  userList: User[];
+  userList: UserType[];
   title?: string;
   className?: string;
 };

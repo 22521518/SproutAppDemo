@@ -2,9 +2,14 @@ import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import TabHeader from '@/components/layouts/TabHeader';
 import TreeListComp from '@/components/common/lists/TreeListComp';
+import { useLocalSearchParams } from 'expo-router';
+import { useNavigationState } from '@react-navigation/native';
 
 const Home = () => {
-  const today = new Date().getFullYear();
+  const { year } = useLocalSearchParams();
+
+  const today = (year as string) ? (year as string) : new Date().getFullYear();
+
   return (
     <SafeAreaView className="flex flex-col relative h-dvh">
       <TabHeader title="Home" />

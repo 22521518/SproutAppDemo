@@ -7,77 +7,93 @@ import {
 } from 'react-native';
 import React from 'react';
 import { Colors } from '@/constants/Colors';
-import TreeIcons from '@/constants/TreeIcons';
+import { tree24 } from '@/constants/dummy-data.constant';
+import TreeButton from '../buttons/TreeButton';
+import { router } from 'expo-router';
 
 const TreeListComp = ({ year }: TreeListCompProps) => {
   const colorScheme = useColorScheme();
   const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
+  const treeList = tree24.filter((tree) => tree.year == year);
+  const springTree = treeList.filter((tree) => tree.month < 4);
+  const summerTree = treeList.filter(
+    (tree) => tree.month < 7 && tree.month > 3
+  );
+  const fallTree = treeList.filter((tree) => tree.month < 10 && tree.month > 6);
+  const winterTree = treeList.filter(
+    (tree) => tree.month < 13 && tree.month > 9
+  );
+
+  const handleTreePress = (id: string) => {
+    router.push(`/home/tree/${id}`);
+  };
+
   return (
-    <View className="flex flex-col items-center h-full w-[90%]">
+    <View className="flex flex-col items-center h-full w-[90%] mx-auto">
       <Text
         className="text-center text-2xl font-bold"
         style={{ color: theme.accentActionButton }}
       >
         Today is {year}
       </Text>
-      <View className="grid grid-rows-4 gap-1 pb-6 w-full h-[90%] my-auto relative content-center">
-        <View className="-mt-[9px] w-[80%] overflow-hidden relative top-0 left-6">
-          <View className="border-b-4 border-solid border-black h-[120%] w-[120%] bottom-0 -left-10 absolute flex flex-row items-end justify-end gap-8 pe-5">
-            {[1, 2, 3].map((_, i) => (
-              <TouchableOpacity>
-                <TreeIcons.TriangleTree
-                  width={56}
-                  height={81}
-                  key={i}
-                  fill={theme['spring-tree']}
+      <View className="grid grid-rows-4 gap-1 pb-6 w-full h-[90%] my-auto relative">
+        {/* SPRING - 1 */}
+        <View className="top-[-1px] w-[85%] mx-auto overflow-hidden relative flex flex-row justify-center items-center -left-4">
+          <View className="border-b-4 border-solid border-black h-[100%] w-[120%] absolute flex flex-row justify-start items-end left-0 ps-9">
+            <View className="w-max grid grid-cols-3 gap-8 items-end relative">
+              {springTree.map((tr, i) => (
+                <TreeButton
+                  key={tr.id}
+                  tree={tr}
+                  handPress={() => handleTreePress(tr.id)}
                 />
-              </TouchableOpacity>
-            ))}
+              ))}
+            </View>
           </View>
         </View>
 
-        <View className="-mt-[9px] w-[123%] overflow-hidden relative top-0 -right-11">
-          <View className="border-4 border-solid border-black h-[100%] w-[120%] bottom-0 right-28 absolute rounded-full flex flex-row items-end justify-end gap-8 pe-12">
-            {[1, 2, 3].map((_, i) => (
-              <TouchableOpacity>
-                <TreeIcons.SquareTree
-                  width={56}
-                  height={81}
-                  key={i}
-                  fill={theme['summer-tree']}
+        {/* SUMMER - 2 */}
+        <View className="-mt-[9px] w-[85%] mx-auto overflow-hidden relative flex flex-row justify-center items-center -right-6 ">
+          <View className="border-4 border-solid border-black h-[100%] w-[120%] rounded-full absolute flex flex-row justify-end items-end right-0 pe-9">
+            <View className="w-max grid grid-cols-3 gap-8 items-end relative">
+              {summerTree.map((tr, i) => (
+                <TreeButton
+                  key={tr.id}
+                  tree={tr}
+                  handPress={() => handleTreePress(tr.id)}
                 />
-              </TouchableOpacity>
-            ))}
+              ))}
+            </View>
           </View>
         </View>
 
-        <View className="-mt-2 w-[85%] overflow-hidden relative top-0 left-0">
-          <View className="border-4 border-solid border-black h-[100%] w-[120%] bottom-0 left-0 rounded-full absolute flex flex-row items-end justify-start gap-8 ps-7">
-            {[1, 2, 3].map((_, i) => (
-              <TouchableOpacity>
-                <TreeIcons.SemiCircleTree
-                  width={56}
-                  height={81}
-                  key={i}
-                  fill={theme['fall-tree']}
+        {/* FALL - 3 */}
+        <View className="-mt-[9px] w-[85%] mx-auto overflow-hidden relative flex flex-row justify-center items-center -left-4">
+          <View className="border-4 border-solid border-black h-[100%] w-[120%] rounded-full absolute flex flex-row justify-start items-end left-0 ps-9">
+            <View className="w-max grid grid-cols-3 gap-8 items-end relative">
+              {fallTree.map((tr, i) => (
+                <TreeButton
+                  key={tr.id}
+                  tree={tr}
+                  handPress={() => handleTreePress(tr.id)}
                 />
-              </TouchableOpacity>
-            ))}
+              ))}
+            </View>
           </View>
         </View>
 
-        <View className="-mt-[9px] w-[123%] overflow-hidden relative top-0 -right-11">
-          <View className="border-4 border-solid border-black h-[100%] w-[120%] bottom-0 right-28 absolute rounded-full flex flex-row items-end justify-end gap-8 pe-12">
-            {[1, 2, 3].map((_, i) => (
-              <TouchableOpacity>
-                <TreeIcons.CircleTree
-                  width={56}
-                  height={81}
-                  key={i}
-                  fill={theme['winter-tree']}
+        {/* WINTER - 4 */}
+        <View className="-mt-[9px] w-[85%] mx-auto overflow-hidden relative flex flex-row justify-center items-center -right-6">
+          <View className="border-4 border-solid border-black h-[100%] w-[120%] rounded-full absolute flex flex-row justify-end items-end right-0 pe-9">
+            <View className="w-max grid grid-cols-3 gap-8 items-end relative">
+              {winterTree.map((tr, i) => (
+                <TreeButton
+                  key={tr.id}
+                  tree={tr}
+                  handPress={() => handleTreePress(tr.id)}
                 />
-              </TouchableOpacity>
-            ))}
+              ))}
+            </View>
           </View>
         </View>
       </View>

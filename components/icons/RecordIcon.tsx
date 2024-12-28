@@ -1,6 +1,6 @@
 import { StyleSheet, useColorScheme } from 'react-native';
 import React from 'react';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 
 interface RecordIconProps {
   isCurrent: boolean;

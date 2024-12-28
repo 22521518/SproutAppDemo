@@ -24,7 +24,14 @@ export default function RecordButton({ color, focused }: RecordButtonProps) {
 
   const handlePress = React.useCallback(() => {
     if (trickLord > 0) {
-      router.push('/recording');
+      var cntDwn = 2;
+      const dummyInterval = setInterval(() => {
+        cntDwn--;
+        if (cntDwn === 0) {
+          clearInterval(dummyInterval);
+          router.push('/recording');
+        }
+      }, 100);
     } else {
       setTrickLord(trickLord + 1);
     }

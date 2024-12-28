@@ -10,18 +10,18 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TabHeader from '@/components/layouts/TabHeader';
 import Avatar from '@/components/avatars/Avatar';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 import { Link, router } from 'expo-router';
 import { offlineUser, user } from '@/constants/dummy-data.constant';
 import { Colors } from '@/constants/Colors';
-import { User } from '@/constants/type.constant';
+import { UserType } from '@/constants/type.constant';
 import FriendListComp from '@/components/common/lists/FriendListComp';
 
 const Friends = () => {
   const colorScheme = useColorScheme();
   const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
 
-  const friendList: User[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => {
+  const friendList: UserType[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => {
     return { ...user, isOnline: Math.random() > 0.5 };
   });
 

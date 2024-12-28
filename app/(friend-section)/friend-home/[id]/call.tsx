@@ -9,18 +9,15 @@ import React from 'react';
 import BackHeader from '@/components/layouts/BackHeader';
 import { Colors } from '@/constants/Colors';
 import { router, useLocalSearchParams } from 'expo-router';
-import { GetUser } from '@/utils/data.utils';
-import AvatarIcons from '@/constants/AvatarIcons';
-import IconButton from '@/components/common/buttons/IconButton';
-import Icons from '@/constants/Icons';
-import { formatTime } from '@/utils/time.utils';
+import { getUser } from '@/utils/data.utils';
+import AvatarIcons from '@/components/icons/AvatarIcons';
 import RecordingComp from '@/components/recording/RecordingComp';
 
 const FriendCall = () => {
   const colorScheme = useColorScheme();
   const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
   const { id } = useLocalSearchParams();
-  const user = GetUser(id as string);
+  const user = getUser(id as string);
   const avatarTheme =
     colorScheme === 'dark' ? AvatarIcons.dark : AvatarIcons.light;
   const AvatarIconComponent = avatarTheme[user.avatar];
@@ -29,9 +26,15 @@ const FriendCall = () => {
     router.back();
   };
 
+  const handleGoBack = () => {
+    if (router.canGoBack()) router.back();
+    else router.replace('/friends');
+  };
+
   return (
     <SafeAreaView className="h-dvh flex flex-col relative justify-between">
       <BackHeader
+        handleGoBack={handleGoBack}
         disableBack
         icon={() => (
           <View className="size-[60] border-4 pt-1 border-solid bg-bg-avatar-light border-accent-bg-light dark:bg-bg-avatar-dark dark:border-accent-bg-dark rounded-full  flex items-center justify-centers relative drop-shadow-2xl">

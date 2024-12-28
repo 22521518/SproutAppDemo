@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { Colors } from '@/constants/Colors';
 import { formatTime } from '@/utils/time.utils';
 import IconButton from '../common/buttons/IconButton';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer';
 import { SvgProps } from 'react-native-svg';
 import PlayPauseButton from '../common/buttons/PlayPaseButton';

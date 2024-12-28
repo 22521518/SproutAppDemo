@@ -18,7 +18,12 @@ export const Colors = {
     'spring-tree': '#A3D076',
     'summer-tree': '#FFBA57',
     'fall-tree': '#FF6F61',
-    'winter-tree': '#657CFF'
+    'winter-tree': '#657CFF',
+
+    'spring-tree-dark': '#1F2E21',
+    'summer-tree-dark': '#825617',
+    'fall-tree-dark': '#990E00',
+    'winter-tree-dark': '#001799'
   },
   dark: {
     text: '#ECEDEE',
@@ -36,6 +41,11 @@ export const Colors = {
     'spring-tree': '#A3D076',
     'summer-tree': '#FFBA57',
     'fall-tree': '#FF6F61',
-    'winter-tree': '#657CFF'
+    'winter-tree': '#657CFF',
+
+    'spring-tree-dark': '#1F2E21',
+    'summer-tree-dark': '#825617',
+    'fall-tree-dark': '#990E00',
+    'winter-tree-dark': '#001799'
   }
 };

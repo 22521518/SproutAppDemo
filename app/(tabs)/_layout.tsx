@@ -3,9 +3,10 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
 import TabIcon from '@/components/tabs/TabIcon';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 import RecordButton from '@/components/common/buttons/RecordButton';
 import { Colors } from '@/constants/Colors';
+import { useNavigationState } from '@react-navigation/native';
 
 const TabLayout = () => {
   const colorScheme = useColorScheme();
@@ -96,35 +97,61 @@ const TabLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="home"
+          name={`home/index`}
           options={{
             title: 'Home',
-            tabBarIcon: ({ color, focused }) => (
-              <>
-                <Icons.HomeTab
-                  width={96}
-                  height={96}
-                  fill={
-                    focused
-                      ? theme.accentActionButton
-                      : theme['secondary-white']
-                  }
-                />
-                {focused && (
-                  <View
-                    className="w-[80%] h-1"
-                    style={{
-                      backgroundColor: theme.accentActionButton,
-                      position: 'absolute',
-                      bottom: -10,
-                      left: '10%',
-                      right: '10%',
-                      borderRadius: 50
-                    }}
+            tabBarIcon: ({ color, focused }) => {
+              const currentRoute = useNavigationState(
+                (state) => state.routes[state.index].name
+              );
+              const active = currentRoute.includes('home') || focused;
+              return (
+                <>
+                  <Icons.HomeTab
+                    width={96}
+                    height={96}
+                    fill={
+                      active
+                        ? theme.accentActionButton
+                        : theme['secondary-white']
+                    }
                   />
-                )}
-              </>
-            )
+                  {active && (
+                    <View
+                      className="w-[80%] h-1"
+                      style={{
+                        backgroundColor: theme.accentActionButton,
+                        position: 'absolute',
+                        bottom: -10,
+                        left: '10%',
+                        right: '10%',
+                        borderRadius: 50
+                      }}
+                    />
+                  )}
+                </>
+              );
+            }
+          }}
+        />
+        <Tabs.Screen
+          name="home/[year]/index"
+          options={{
+            href: null
+          }}
+        />
+
+        <Tabs.Screen
+          name="home/(home-section)/tree/[id]/index"
+          options={{
+            href: null
+          }}
+        />
+
+        <Tabs.Screen
+          name="home/(home-section)/tree/[id]/part/[partId]/index"
+          options={{
+            href: null
           }}
         />
       </Tabs>

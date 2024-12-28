@@ -43,11 +43,15 @@ const RootLayout = () => {
           contentStyle: { backgroundColor: theme.background }
         }}
       >
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(tabs)"
+          options={{ headerShown: false }}
+        ></Stack.Screen>
         <Stack.Screen
           name="(friend-section)"
           options={{ headerShown: false }}
         />
+
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="light" />

@@ -3,7 +3,7 @@ import React from 'react';
 import TabHeader from '@/components/layouts/TabHeader';
 import RecordingComp from '@/components/recording/RecordingComp';
 import { router } from 'expo-router';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 
 const Recording = () => {
   const handleGoBack = () => {

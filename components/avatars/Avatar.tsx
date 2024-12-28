@@ -6,8 +6,8 @@ import {
   View
 } from 'react-native';
 import React from 'react';
-import AvatarIcons from '@/constants/AvatarIcons';
-import { User } from '@/constants/type.constant';
+import AvatarIcons from '@/components/icons/AvatarIcons';
+import { UserType } from '@/constants/type.constant';
 import { Colors } from '@/constants/Colors';
 import { router } from 'expo-router';
 
@@ -21,7 +21,6 @@ export default function Avatar({ user }: AvatarProps) {
 
   const handleAvatarPress = () => {
     router.push(`/friend-home/${user.usernameId}`);
-    console.log('Avatar Pressed');
   };
 
   return (
@@ -46,5 +45,5 @@ export default function Avatar({ user }: AvatarProps) {
 const styles = StyleSheet.create({});
 
 type AvatarProps = {
-  user: User;
+  user: UserType;
 };

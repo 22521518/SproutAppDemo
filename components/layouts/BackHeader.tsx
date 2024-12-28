@@ -6,27 +6,21 @@ import {
   View
 } from 'react-native';
 import React from 'react';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 import { Colors } from '@/constants/Colors';
-import { router } from 'expo-router';
 import { SvgProps } from 'react-native-svg';
 
 const BackHeader = ({
   title,
   icon,
   children,
-  disableBack
+  disableBack,
+  handleGoBack
 }: BackHeaderProps) => {
   const colorScheme = useColorScheme();
   const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
 
   const IconComp = icon ? icon : Icons.Logo;
-
-  const handleGoBack = () => {
-    if (router.canGoBack()) router.back();
-    else router.replace('/friends');
-  };
-
   return (
     <View className="height-[96px] py-4 w-full px-4 relative top-0 flex flex-row justify-between items-center">
       <View
@@ -75,4 +69,5 @@ type BackHeaderProps = {
   icon?: React.FC<SvgProps>;
   children?: React.ReactNode;
   disableBack?: boolean;
+  handleGoBack: () => void;
 };

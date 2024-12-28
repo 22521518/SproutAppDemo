@@ -7,7 +7,7 @@ import {
   View
 } from 'react-native';
 import React from 'react';
-import Icons from '@/constants/Icons';
+import Icons from '@/components/icons/Icons';
 import { colorScheme } from 'nativewind';
 import { Colors } from '@/constants/Colors';
 

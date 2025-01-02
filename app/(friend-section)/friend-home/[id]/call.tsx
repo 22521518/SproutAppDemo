@@ -20,8 +20,8 @@ const FriendCall = () => {
   const onEndCall = (fruitId: string) => {
     handleGoBack();
     router.push({
-      pathname: '/reward-recording/[id]',
-      params: { id: fruitId }
+      pathname: `/friend-home/[id]/reward/[fruitId]`,
+      params: { id: user.usernameId, fruitId: fruitId }
     });
   };
 

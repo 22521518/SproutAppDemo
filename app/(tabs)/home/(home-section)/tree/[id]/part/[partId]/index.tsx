@@ -8,8 +8,8 @@ import { DummyTreesList } from '@/utils/dummy-data.utils';
 import {
   ColorTreeTypeMap,
   MonthDictions
-} from '@/constants/theme-dict.constant';
-import { TreeColorTypeEnum } from '@/constants/enum.constant';
+} from '@/constants/dictionary.constant';
+import { TreeColorTypeEnum } from '@/models/enum.model';
 import TreePartComponent from '@/components/trees/TreePart';
 
 const TreePart = () => {
@@ -48,19 +48,35 @@ const TreePart = () => {
     <View className="flex flex-col flex-1">
       <BackHeader title={year.toString()} handleGoBack={handleGoBack} />
       <View className="flex-1 mb-8 flex justify-center items-center px-5 pb-3 h-full">
-        <View className="bg-secondary-white h-[80%] w-full rounded-[50px] flex flex-col items-center drop-shadow-lg  overflow-hidden">
+        <View className="bg-secondary-white h-[80%] w-full rounded-[50px] flex flex-col drop-shadow-lg overflow-hidden">
           <Text
-            className="text-2xl font-bold text-center"
+            className="text-2xl font-bold text-center mb-8"
             style={{
               color: color
             }}
           >
-            {MonthDictions[month ?? 1]}
+            {MonthDictions[Number(month)]}
           </Text>
-          <View className="grid grid-rows-2 grid-cols-1 gap-4 h-full w-full items-center justify-center place-content-center relative overflow-hidden pt-20">
-            <TreePartComponent part={part} className="" width={75} />
+          <View className="flex flex-col gap-10 h-full w-full relative overflow-hidden items-center justify-evenly">
+            <View className="w-full h-3/5 relative">
+              <TreePartComponent
+                part={part}
+                width={100}
+                fruitSize={32}
+                handlePress={() => {
+                  console.log('part', part);
+                }}
+              />
+            </View>
             {lowerPart && (
-              <TreePartComponent part={lowerPart} className="" width={90} />
+              <View className="w-[120%] h-2/5 relative">
+                <TreePartComponent
+                  part={lowerPart}
+                  width={100}
+                  fruitSize={32}
+                  disabled
+                />
+              </View>
             )}
           </View>
         </View>

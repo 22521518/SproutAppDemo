@@ -23,7 +23,14 @@ export const Colors = {
     'spring-tree-dark': '#1F2E21',
     'summer-tree-dark': '#825617',
     'fall-tree-dark': '#990E00',
-    'winter-tree-dark': '#001799'
+    'winter-tree-dark': '#001799',
+
+    'happy-emotion': '#FFBA57',
+    'angry-emotion': '#FF6B6B',
+    'sad-emotion': '#8C9EFF',
+    'disgust-emotion': '#A3D076',
+    'fear-emotion': '#C890F4',
+    'neutral-emotion': '#C4C4C4'
   },
   dark: {
     text: '#ECEDEE',
@@ -46,6 +53,13 @@ export const Colors = {
     'spring-tree-dark': '#1F2E21',
     'summer-tree-dark': '#825617',
     'fall-tree-dark': '#990E00',
-    'winter-tree-dark': '#001799'
+    'winter-tree-dark': '#001799',
+
+    'happy-emotion': '#FFBA57',
+    'angry-emotion': '#FF6B6B',
+    'sad-emotion': '#8C9EFF',
+    'disgust-emotion': '#A3D076',
+    'fear-emotion': '#C890F4',
+    'neutral-emotion': '#C4C4C4'
   }
 };

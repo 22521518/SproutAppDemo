@@ -6,11 +6,11 @@ import {
   View
 } from 'react-native';
 import React from 'react';
-import { offlineUser, user } from '@/constants/dummy-data.constant';
+import { offlineUser, user } from '@/data/dummy-data.constant';
 import { Link, router, useLocalSearchParams } from 'expo-router';
 import Icons from '@/components/icons/Icons';
 import { Colors } from '@/constants/Colors';
-import { UserType } from '@/constants/type.constant';
+import { UserType } from '@/models/type.model';
 import FormField from '@/components/common/forms/FormField';
 import FriendListComp from '@/components/common/lists/FriendListComp';
 

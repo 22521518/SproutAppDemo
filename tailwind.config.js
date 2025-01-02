@@ -35,6 +35,9 @@ module.exports = {
           light: '#A3D076',
           dark: '#657CFF'
         }
+      },
+      fontWeight: {
+        bold: 800
       }
     }
   },

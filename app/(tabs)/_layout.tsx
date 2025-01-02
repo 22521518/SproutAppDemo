@@ -1,5 +1,5 @@
 import '@/global.css';
-import { SafeAreaView, useColorScheme, View } from 'react-native';
+import { useColorScheme, View } from 'react-native';
 import React from 'react';
 import { Tabs } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
@@ -8,6 +8,7 @@ import Icons from '@/components/icons/Icons';
 import RecordButton from '@/components/common/buttons/RecordButton';
 import { Colors } from '@/constants/Colors';
 import { useNavigationState } from '@react-navigation/native';
+import CustomSafeAreaView from '@/components/layouts/CustomSafeAreaView';
 
 const TabLayout = () => {
   const colorScheme = useColorScheme();
@@ -19,7 +20,7 @@ const TabLayout = () => {
       : ['#D0E7B9', '#748167'];
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
+    <CustomSafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
       <Tabs
         screenOptions={{
           header: () => null,
@@ -98,7 +99,7 @@ const TabLayout = () => {
           }}
         />
         <Tabs.Screen
-          name={`home/index`}
+          name="home/[year]/index"
           options={{
             title: 'Home',
             tabBarIcon: ({ color, focused }) => {
@@ -135,12 +136,6 @@ const TabLayout = () => {
             }
           }}
         />
-        <Tabs.Screen
-          name="home/[year]/index"
-          options={{
-            href: null
-          }}
-        />
 
         <Tabs.Screen
           name="home/(home-section)/tree/[id]/index"
@@ -156,7 +151,7 @@ const TabLayout = () => {
           }}
         />
       </Tabs>
-    </SafeAreaView>
+    </CustomSafeAreaView>
   );
 };
 

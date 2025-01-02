@@ -24,8 +24,8 @@ INPUT_DIRS=(
 
 # Loop through each input directory
 for DIR in "${INPUT_DIRS[@]}"; do
-  echo "Processing directory: $DIR"
-  npx @svgr/cli "$DIR" --native -o "$OUTPUT_DIR"
+  echo "Transforming SVGs from $DIR to $OUTPUT_DIR"
+  npx @svgr/cli --native --out-dir "$OUTPUT_DIR" --no-dimensions "./svgo.config.js" "$DIR"
 done
 
 echo "Conversion completed! All components are in $OUTPUT_DIR."

@@ -1,10 +1,4 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View
-} from 'react-native';
+import { StyleSheet, Text, useColorScheme, View } from 'react-native';
 import React from 'react';
 import BackHeader from '@/components/layouts/BackHeader';
 import { Colors } from '@/constants/Colors';
@@ -12,6 +6,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import { getUser } from '@/utils/data.utils';
 import AvatarIcons from '@/components/icons/AvatarIcons';
 import RecordingComp from '@/components/recording/RecordingComp';
+import CustomSafeAreaView from '@/components/layouts/CustomSafeAreaView';
 
 const FriendCall = () => {
   const colorScheme = useColorScheme();
@@ -22,8 +17,12 @@ const FriendCall = () => {
     colorScheme === 'dark' ? AvatarIcons.dark : AvatarIcons.light;
   const AvatarIconComponent = avatarTheme[user.avatar];
 
-  const onEndCall = () => {
-    router.back();
+  const onEndCall = (fruitId: string) => {
+    handleGoBack();
+    router.push({
+      pathname: '/reward-recording/[id]',
+      params: { id: fruitId }
+    });
   };
 
   const handleGoBack = () => {
@@ -32,7 +31,7 @@ const FriendCall = () => {
   };
 
   return (
-    <SafeAreaView className="h-full flex flex-col relative justify-between">
+    <CustomSafeAreaView className="justify-between">
       <BackHeader
         handleGoBack={handleGoBack}
         disableBack
@@ -56,11 +55,9 @@ const FriendCall = () => {
           </Text>
         </View>
       </BackHeader>
-      <View className="flex-1">
-        <Text>FriendCall {id}</Text>
-      </View>
+
       <RecordingComp onEndCall={onEndCall} />
-    </SafeAreaView>
+    </CustomSafeAreaView>
   );
 };
 

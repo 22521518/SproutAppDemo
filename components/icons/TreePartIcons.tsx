@@ -18,7 +18,7 @@ import TriangleLv2 from '@/assets/icons/tree-parts/triangle-lv2.svg';
 import TriangleLv3 from '@/assets/icons/tree-parts/triangle-lv3.svg';
 import TriangleLv4 from '@/assets/icons/tree-parts/triangle-lv4.svg';
 
-export default {
+const TreePartIcons = {
   Circle: {
     Lv1: CircleLv1,
     Lv2: CircleLv2,
@@ -44,3 +44,5 @@ export default {
     Lv4: TriangleLv4
   }
 };
+
+export default TreePartIcons;

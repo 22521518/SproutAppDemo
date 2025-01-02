@@ -1,9 +1,10 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import React from 'react';
 import TabHeader from '@/components/layouts/TabHeader';
 import RecordingComp from '@/components/recording/RecordingComp';
 import { router } from 'expo-router';
 import Icons from '@/components/icons/Icons';
+import CustomSafeAreaView from '@/components/layouts/CustomSafeAreaView';
 
 const Recording = () => {
   const handleGoBack = () => {
@@ -11,14 +12,18 @@ const Recording = () => {
     else router.replace('/');
   };
 
-  const onEndCall = () => {
+  const onEndCall = (fruitId: string) => {
     handleGoBack();
+    router.replace({
+      pathname: '/reward-recording/[id]',
+      params: { id: fruitId }
+    });
   };
   return (
-    <SafeAreaView className="h-dvh flex flex-col relative justify-between">
+    <CustomSafeAreaView className="justify-between">
       <TabHeader />
       <RecordingComp onEndCall={onEndCall} icon={Icons.Recording} />
-    </SafeAreaView>
+    </CustomSafeAreaView>
   );
 };
 

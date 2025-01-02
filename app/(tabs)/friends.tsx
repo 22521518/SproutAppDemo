@@ -8,16 +8,15 @@ import {
   View
 } from 'react-native';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import TabHeader from '@/components/layouts/TabHeader';
-import Avatar from '@/components/avatars/Avatar';
 import Icons from '@/components/icons/Icons';
 import { router } from 'expo-router';
-import { user } from '@/constants/dummy-data.constant';
+import { user } from '@/data/dummy-data.constant';
 import { Colors } from '@/constants/Colors';
-import { UserType } from '@/constants/type.constant';
+import { UserType } from '@/models/type.model';
 import FriendListComp from '@/components/common/lists/FriendListComp';
 import { verifyInstallation } from 'nativewind';
+import CustomSafeAreaView from '@/components/layouts/CustomSafeAreaView';
 
 const Friends = () => {
   const colorScheme = useColorScheme();
@@ -44,9 +43,9 @@ const Friends = () => {
   verifyInstallation();
 
   return (
-    <SafeAreaView className="flex flex-col relative">
+    <CustomSafeAreaView>
       <TabHeader title="Friends" />
-      <View className="px-4 pb-4 mt-1 flex flex-col">
+      <View className="px-4 pb-4 mt-1 flex flex-col w-full">
         <View className="px-6 flex flex-row items-center justify-between relative mb-6">
           <Text className="text-lg font-bold ml-auto mr-auto text-accent-bg-light dark:text-accent-bg-dark">
             total - {friendList.length}
@@ -58,11 +57,9 @@ const Friends = () => {
             <Icons.Search fill={theme.avatarBackground} />
           </TouchableOpacity>
         </View>
-        <View>
-          <FriendListComp userList={[...onlineFriends, ...offlineFriends]} />
-        </View>
+        <FriendListComp userList={[...onlineFriends, ...offlineFriends]} />
       </View>
-    </SafeAreaView>
+    </CustomSafeAreaView>
   );
 };
 

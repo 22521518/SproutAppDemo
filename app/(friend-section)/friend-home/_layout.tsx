@@ -22,6 +22,7 @@ const FriendRootLayout = () => {
     >
       <Stack.Screen name="[id]/call" />
       <Stack.Screen name="[id]/index" />
+      <Stack.Screen name="[id]/reward/[fruitId]" />
     </Stack>
   );
 };

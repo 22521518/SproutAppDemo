@@ -13,8 +13,8 @@ import { Colors } from '@/constants/Colors';
 import {
   ColorTreeTypeMap,
   MonthDictions
-} from '@/constants/theme-dict.constant';
-import { TreeColorTypeEnum, TreeTypeEnum } from '@/constants/enum.constant';
+} from '@/constants/dictionary.constant';
+import { TreeColorTypeEnum, TreeTypeEnum } from '@/models/enum.model';
 import { DummyTreePart, DummyTreesList } from '@/utils/dummy-data.utils';
 import TreePartComponent from '@/components/trees/TreePart';
 
@@ -47,10 +47,6 @@ const TreeHome = () => {
   };
 
   const handlePressOnPart = (partId: string) => {
-    console.log(
-      'partId',
-      partList.find((p) => p.id === partId)
-    );
     router.push(`/home/tree/${id}/part/${partId}`);
   };
 
@@ -67,7 +63,7 @@ const TreeHome = () => {
           >
             {MonthDictions[tree?.month ?? 1]}
           </Text>
-          <View className="relative h-full w-full max-h-[80%] grid grid-cols-15 gap-2">
+          <View className="relative h-full w-full max-h-[70%] flex flex-col">
             {[3, 2, 1, 0].map((i) => {
               const increaseWidth = [50, 33, 13, 0];
               const part = sortedPartList[i];
@@ -76,17 +72,7 @@ const TreeHome = () => {
                   handlePress={() => handlePressOnPart(part.id)}
                   key={i}
                   part={part}
-                  className={` relative ${
-                    i <= 1 && sortedPartList.length == 4
-                      ? i == 0
-                        ? ' -bottom-14 '
-                        : '-bottom-3'
-                      : i <= 1 && sortedPartList.length != 4
-                      ? i == 1
-                        ? ' bottom-3 '
-                        : ' -bottom-5 '
-                      : ' bottom-0 '
-                  } `}
+                  className={`relative`}
                 />
               ) : (
                 <View

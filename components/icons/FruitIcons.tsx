@@ -11,7 +11,7 @@ import OutlineFearPineapple from '@/assets/icons/decorations/fruits/outline-fear
 import OutlineDisgustOrange from '@/assets/icons/decorations/fruits/outline-disgust-orange.svg';
 import OutlineNeutralApple from '@/assets/icons/decorations/fruits/outline-neural-apple.svg';
 
-export default {
+const FruitIcons = {
   FillAngryStrawberry,
   FillHappyPeach,
   FillSadPear,
@@ -25,3 +25,5 @@ export default {
   OutlineDisgustOrange,
   OutlineNeutralApple
 };
+
+export default FruitIcons;

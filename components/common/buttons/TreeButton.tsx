@@ -6,12 +6,12 @@ import {
   View
 } from 'react-native';
 import React from 'react';
-import { TreeType } from '@/constants/type.constant';
+import { TreeType } from '@/models/type.model';
 import { Colors } from '@/constants/Colors';
 import {
   TreeIconsTypeMap,
   ColorIconTypeMap
-} from '@/constants/theme-dict.constant';
+} from '@/constants/dictionary.constant';
 
 const TreeButton = ({ tree, handPress }: TreeButtonProps) => {
   const colorScheme = useColorScheme();

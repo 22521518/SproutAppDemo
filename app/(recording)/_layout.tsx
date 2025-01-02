@@ -15,6 +15,7 @@ const RecordingLayout = () => {
       }}
     >
       <Stack.Screen name="recording" />
+      <Stack.Screen name="reward-recording/[id]" />
     </Stack>
   );
 };

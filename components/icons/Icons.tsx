@@ -21,8 +21,9 @@ import Scissors from '@/assets/icons/svg/scissors.svg';
 import Pause from '@/assets/icons/svg/pause.svg';
 import Play from '@/assets/icons/svg/play.svg';
 import Recording from '@/assets/icons/svg/recording.svg';
+import Tick from '@/assets/icons/svg/tick.svg';
 
-export default {
+const Icons = {
   SunnyActive,
   SunnyInactive,
   MoonActive,
@@ -45,5 +46,8 @@ export default {
   Scissors,
   Pause,
   Play,
-  Recording
+  Recording,
+  Tick
 };
+
+export default Icons;

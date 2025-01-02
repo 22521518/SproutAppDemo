@@ -1,32 +1,53 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { UserType } from '@/constants/type.constant';
-import Avatar from '@/components/avatars/Avatar';
+import { UserType } from '@/models/type.model';
+import Avatar from '@/components/decorations/Avatar';
 
 const FriendListComp = ({ userList, title }: FriendListCompProps) => {
   return (
-    <>
+    <View style={styles.container}>
       {title && (
-        <View className="px-6 flex flex-row items-center justify-between relative">
-          <Text className="text-lg font-bold ml-auto mr-auto text-accent-bg-light dark:text-accent-bg-dark">
+        <View className="px-6 flex flex-row items-center justify-between relative w-full">
+          <Text className="text-lg font-bold mx-auto text-accent-bg-light dark:text-accent-bg-dark">
             {title} - {userList.length}
           </Text>
         </View>
       )}
-      <View className="px-10 pt-3 grid grid-cols-3 gap-6 ">
+      <View style={styles.friendContainer}>
         {userList.map((u, index) => (
-          <View className="flex flex-col items-center" key={index}>
+          <View key={index} style={styles.friendItem}>
             <Avatar user={u} />
           </View>
         ))}
       </View>
-    </>
+    </View>
   );
 };
 
 export default FriendListComp;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
+    gap: 6
+  },
+  friendContainer: {
+    flexDirection: 'row', // Arrange items in a row
+    flexWrap: 'wrap', // Allow wrapping to next line
+    justifyContent: 'center', // Add space between items
+    paddingHorizontal: 10, // Replace 'paddingInline'
+    paddingTop: 3,
+    gap: 18, // React Native now supports gap in newer versions; if not, handle manually
+    width: '100%',
+    height: 'auto'
+  },
+  friendItem: {
+    width: '25%' // 2 items per row
+  }
+});
 
 type FriendListCompProps = {
   userList: UserType[];

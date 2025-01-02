@@ -72,7 +72,7 @@ const RecordingReward = ({ fruit }: RecordingRewardProps) => {
                     const colorText = EmotionTypeColorMap(value.type, theme);
                     const ShapeIconComp = EmotionTypeShapeMap[value.type];
                     return (
-                      <View className="flex flex-row justify-between">
+                      <View className="flex flex-row justify-between" key={key}>
                         <View className="flex flex-row gap-1 items-center justify-center">
                           <ShapeIconComp width={20} height={20} />
                           <Text

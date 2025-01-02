@@ -71,7 +71,7 @@ const RecordingComp = ({
   };
 
   const handleEndCall = () => {
-    if (maxDuration - countDown < 0.2) return;
+    if (maxDuration - countDown < 1) return;
     intervalId && clearInterval(intervalId);
     intervalId = null;
     const dummyFruit = dummyFearFruit;

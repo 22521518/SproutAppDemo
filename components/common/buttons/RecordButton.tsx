@@ -1,7 +1,15 @@
-import { Image, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  Touchable,
+  TouchableOpacity,
+  useColorScheme,
+  View
+} from 'react-native';
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
-import { router, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { useNavigationState } from '@react-navigation/native';
 import { Colors } from '@/constants/Colors';
 import RecordIcon from '../../icons/RecordIcon';
@@ -15,46 +23,53 @@ export default function RecordButton({ color, focused }: RecordButtonProps) {
   const colorScheme = useColorScheme();
   const theme = colorScheme === 'dark' ? Colors.dark : Colors.light;
   const [count, setCount] = React.useState(10);
-
+  const router = useRouter();
   const currentRoute = useNavigationState(
     (state) => state.routes[state.index].name
   );
   const [trickLord, setTrickLord] = React.useState(0);
-  const [active, setActive] = React.useState(currentRoute === 'index');
 
-  const handlePress = React.useCallback(() => {
-    if (trickLord > 0) {
-      var cntDwn = 2;
-      const dummyInterval = setInterval(() => {
-        cntDwn--;
-        if (cntDwn === 0) {
-          clearInterval(dummyInterval);
-          router.push('/recording');
-        }
-      }, 100);
+  // const handlePress = React.useCallback(() => {
+  //   if (trickLord > 0) {
+  //     var cntDwn = 2;
+  //     const dummyInterval = setInterval(() => {
+  //       cntDwn--;
+  //       if (cntDwn === 0) {
+  //         clearInterval(dummyInterval);
+  //         router.push('/recording');
+  //       }
+  //     }, 10);
+  //   } else {
+  //     setTrickLord(trickLord + 1);
+  //   }
+  // }, [currentRoute]);
+  const isActive = currentRoute === 'index';
+  const handlePress = () => {
+    if (isActive) {
+      // Perform activation logic
+      console.log('Button activated on index screen');
+      router.push('/recording');
+      // Add any additional logic here, e.g., starting a recording
     } else {
-      setTrickLord(trickLord + 1);
+      // Navigate to the index screen
+      router.push('/(tabs)');
     }
-  }, [currentRoute]);
-
-  React.useEffect(() => {
-    setActive(currentRoute === 'index');
-    setTrickLord(0);
-  }, [currentRoute]);
+  };
 
   return (
-    <View
-      onPointerDown={handlePress}
+    <TouchableOpacity
+      onPress={handlePress}
+      activeOpacity={0.9}
       className={`record-btn size-[96px] bottom-4 rounded-full relative justify-center items-center border-4 border-solid border-accent-button-light dark:border-accent-button-dark shadow-black drop-shadow-lg  ${
-        active
+        focused
           ? 'bg-accent-button-light dark:bg-accent-button-dark '
           : 'bg-secondary-white dark:bg-secondary-white border-opacity-80 dark:border-opacity-80'
       }`}
     >
-      <RecordIcon isCurrent={active} />
+      <RecordIcon isCurrent={focused} />
       <Text
         className={`font-bold text-xl ${
-          active
+          focused
             ? 'text-secondary-white'
             : 'text-accent-button-light dark:text-accent-bg-dark'
         } absolute bottom-0`}
@@ -66,7 +81,7 @@ export default function RecordButton({ color, focused }: RecordButtonProps) {
           <View className="record-icon size-6 rounded-full bg-accent-button-light border-solid border-4 border-white "></View>
         </View>
       )}
-    </View>
+    </TouchableOpacity>
   );
 }
 

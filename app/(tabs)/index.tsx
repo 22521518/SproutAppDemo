@@ -7,8 +7,11 @@ import { Colors } from '@/constants/Colors';
 import { MonthDictions } from '@/constants/dictionary.constant';
 import { dummyTree2k } from '@/data/dummy-data.constant';
 import CustomSafeAreaView from '@/components/layouts/CustomSafeAreaView';
+import { Audio } from 'expo-av';
 
 const Recording = () => {
+  const [permissionResponse, requestPermission] = Audio.usePermissions();
+
   const colorScheme = useColorScheme();
   const theme: { [key: string]: string } =
     colorScheme === 'dark' ? Colors.dark : Colors.light;
@@ -26,6 +29,12 @@ const Recording = () => {
     part.level > 1 && thisMonthTree.parts.length > 1
       ? thisMonthTree.parts[part.level - 2]
       : undefined;
+
+  React.useEffect(() => {
+    if (!permissionResponse) {
+      requestPermission();
+    }
+  }, [permissionResponse]);
 
   return (
     <CustomSafeAreaView className="">

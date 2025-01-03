@@ -1,9 +1,7 @@
 import {
-  Image,
   StyleSheet,
   Text,
-  Touchable,
-  TouchableOpacity,
+  Pressable,
   useColorScheme,
   View
 } from 'react-native';
@@ -29,20 +27,6 @@ export default function RecordButton({ color, focused }: RecordButtonProps) {
   );
   const [trickLord, setTrickLord] = React.useState(0);
 
-  // const handlePress = React.useCallback(() => {
-  //   if (trickLord > 0) {
-  //     var cntDwn = 2;
-  //     const dummyInterval = setInterval(() => {
-  //       cntDwn--;
-  //       if (cntDwn === 0) {
-  //         clearInterval(dummyInterval);
-  //         router.push('/recording');
-  //       }
-  //     }, 10);
-  //   } else {
-  //     setTrickLord(trickLord + 1);
-  //   }
-  // }, [currentRoute]);
   const isActive = currentRoute === 'index';
   const handlePress = () => {
     if (isActive) {
@@ -57,9 +41,8 @@ export default function RecordButton({ color, focused }: RecordButtonProps) {
   };
 
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={handlePress}
-      activeOpacity={0.9}
       className={`record-btn size-[96px] bottom-4 rounded-full relative justify-center items-center border-4 border-solid border-accent-button-light dark:border-accent-button-dark shadow-black drop-shadow-lg  ${
         focused
           ? 'bg-accent-button-light dark:bg-accent-button-dark '
@@ -81,7 +64,7 @@ export default function RecordButton({ color, focused }: RecordButtonProps) {
           <View className="record-icon size-6 rounded-full bg-accent-button-light border-solid border-4 border-white "></View>
         </View>
       )}
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 

@@ -1,11 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import Emotion from '../decorations/Emotion';
 import { EmotionType } from '@/models/type.model';
 import { EmotionTypeEnum } from '@/models/enum.model';
 import { EmotionsGroup } from '@/models/interface.model';
+import Animated, {
+  Extrapolation,
+  interpolate,
+  SharedValue,
+  useAnimatedStyle,
+  useDerivedValue,
+  withTiming
+} from 'react-native-reanimated';
 
-const RecordingContent = ({ emotionData }: RecordingContentProps) => {
+const RecordingContent = ({
+  emotionData,
+  audioMeteringChunks
+}: RecordingContentProps) => {
   const [emotions, setEmotions] = React.useState<EmotionsGroup>({
     happyEmotion: {
       type: EmotionTypeEnum.HAPPY,
@@ -56,8 +67,25 @@ const RecordingContent = ({ emotionData }: RecordingContentProps) => {
         <Emotion emotion={emotions.angryEmotion} />
         <Emotion emotion={emotions.sadEmotion} />
       </View>
-      <View className="flex-grow bg-red-200 w-full">
-        <Text>Calling</Text>
+      <View className="flex-grow w-full items-center flex flex-row gap-1 relative">
+        {audioMeteringChunks.map((db, index) => {
+          return (
+            <View
+              key={index}
+              style={[
+                styles.waveLine,
+                {
+                  height: interpolate(
+                    db,
+                    [-60, 0],
+                    [5, 80],
+                    Extrapolation.CLAMP
+                  )
+                }
+              ]}
+            />
+          );
+        })}
       </View>
       <View className="w-full h-2/5 px-8 flex flex-row justify-between items-center">
         <Emotion emotion={emotions.fearEmotion} />
@@ -70,8 +98,39 @@ const RecordingContent = ({ emotionData }: RecordingContentProps) => {
 
 export default RecordingContent;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  waves: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 3,
+    alignItems: 'center'
+  },
+  waveLine: {
+    flex: 1,
+    borderRadius: 990,
+    backgroundColor: '#ff000055'
+  },
+  textWave: {
+    width: 60,
+    height: 60,
+    textAlign: 'center'
+    // backgroundColor: '#ff00ff55'
+  },
+  recordingWaves: {
+    backgroundColor: '#ff000055',
+    display: 'flex',
+    alignContent: 'center',
+    zIndex: -999,
+    borderRadius: 999,
+    ...StyleSheet.absoluteFillObject,
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0
+  }
+});
 
 type RecordingContentProps = {
   emotionData: EmotionsGroup;
+  audioMeteringChunks: number[];
 };

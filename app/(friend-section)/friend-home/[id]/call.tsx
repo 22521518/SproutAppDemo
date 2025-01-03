@@ -17,7 +17,7 @@ const FriendCall = () => {
     colorScheme === 'dark' ? AvatarIcons.dark : AvatarIcons.light;
   const AvatarIconComponent = avatarTheme[user.avatar];
 
-  const onEndCall = (fruitId: string) => {
+  const onStopRecording = (fruitId: string) => {
     handleGoBack();
     router.push({
       pathname: `/friend-home/[id]/reward/[fruitId]`,
@@ -56,7 +56,7 @@ const FriendCall = () => {
         </View>
       </BackHeader>
 
-      <RecordingComp onEndCall={onEndCall} />
+      <RecordingComp onStopRecording={onStopRecording} />
     </CustomSafeAreaView>
   );
 };

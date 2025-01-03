@@ -12,17 +12,18 @@ const Recording = () => {
     else router.replace('/');
   };
 
-  const onEndCall = (fruitId: string) => {
+  const onStopRecording = (fruitId: string) => {
     handleGoBack();
     router.replace({
       pathname: '/reward-recording/[id]',
       params: { id: fruitId }
     });
   };
+
   return (
     <CustomSafeAreaView className="justify-between">
       <TabHeader />
-      <RecordingComp onEndCall={onEndCall} icon={Icons.Recording} />
+      <RecordingComp onStopRecording={onStopRecording} icon={Icons.Recording} />
     </CustomSafeAreaView>
   );
 };
